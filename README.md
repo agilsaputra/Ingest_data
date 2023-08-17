@@ -63,5 +63,5 @@ IGNORE 1 ROWS;
 
 ![Screenshot from 2023-08-17 14-40-28](https://github.com/agilsaputra/Ingest_data/assets/22126819/e47546f8-f110-4441-8894-a82bdfaeae49)
 
-- data csv berhasil di masukan kedalam sql :tada: :sparkles: :sparkles:
+- 🚀 selamat data csv berhasil di masukan kedalam sql :tada: :sparkles: :sparkles: 
 
