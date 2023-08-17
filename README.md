@@ -1,5 +1,5 @@
-# Ingest data 
+## Ingest data 
 
-## Import csv data kedalam my sql menggunakan terminal linux
+### Import csv data kedalam my sql menggunakan terminal linux
 
 
