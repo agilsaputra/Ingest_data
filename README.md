@@ -1,4 +1,5 @@
-## Ingest data 🧑‍💻 
+## :rocket: Ingest data :rocket: 🧑‍💻 
+
 
 #### Import csv data kedalam my sql menggunakan terminal linux 📄 :point_right:  🧑‍💻 
 
@@ -46,7 +47,8 @@ CREATE TABLE ingest_data_terminal (
 +------------------+-----------------------+
 1 row in set (0,03 sec)
 ```     
-- folder yang di boleh kan oleh mysql untuk mengupload file.     
+- folder secure_file_priv yang di boleh kan oleh mysql untuk mengupload file atau bisa di non aktifkan tp sy mengunakan metode copy file kedalam  ```/var/lib/mysql-files/ ```.
+- copy file csv dari folder download ke dalam ```/var/lib/mysql-files/ ``` (akan berbeda jika menggunakan windows patch filenya)    
 
 - setelah itu jalankan query ```LOAD DATA INFILE``` dengan syntax      
 ```
@@ -61,4 +63,5 @@ IGNORE 1 ROWS;
 
 ![Screenshot from 2023-08-17 14-40-28](https://github.com/agilsaputra/Ingest_data/assets/22126819/e47546f8-f110-4441-8894-a82bdfaeae49)
 
+- data csv berhasil di masukan kedalam sql :tada: :sparkles: :sparkles:
 
