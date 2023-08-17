@@ -29,13 +29,14 @@
 ![Screenshot from 2023-08-17 20-11-27](https://github.com/agilsaputra/Ingest_data/assets/22126819/ef659b53-db19-41e4-aa70-013a0e15b392)
 
 - generate schema buat table ``` 'Ingest_Jupyter' ``` adalah nama tabel saya
+  
   ```
   print(pd.io.sql.get_schema(df, 'Ingest_Jupyter'))
   ```
   hasilnya berikut
   ```
   CREATE TABLE "Ingest_Jupyter" (
-"User ID" INTEGER,
+  "User ID" INTEGER,
   "Subscription Type" TEXT,
   "Monthly Revenue" INTEGER,
   "Join Date" TEXT,
@@ -44,9 +45,9 @@
   "Age" INTEGER,
   "Gender" TEXT,
   "Device" TEXT,
-  "Plan Duration" TEXT
-)
-```
+  "Plan Duration" TEXT)
+  ```
+
 - seletah itu koneksikan ke mysql menggunakan sqlalchemy dengan syntax berikut
  ```
 mysql_engine = create_engine("mysql://user:password@localhost:port/database")
@@ -69,5 +70,5 @@ output
 
 ![Screenshot from 2023-08-17 20-24-31](https://github.com/agilsaputra/Ingest_data/assets/22126819/d20951f5-d48f-42bf-b136-ac46003651dd)
 
-- 2500 adalah total row dalam database yang telah di masukkan
-🚀🚀 selamat file csv sudah masuk kedalam database mysql 🚀🚀
+- 2500 adalah total row dalam database yang telah di masukkan   
+🚀🚀selamat file csv sudah masuk kedalam database mysql 🚀🚀
