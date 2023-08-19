@@ -37,7 +37,7 @@ CREATE TABLE ingest_data_terminal (
       Plan_Duration VARCHAR(255)
 );
 ```     
-- setelah itu download ``` Netflix Userbase.csv ``` di repo ini atau download di kaggle ```https://www.kaggle.com/datasets/arnavsmayan/netflix-userbase-dataset ```     
+- setelah itu download ``` Netflix Userbase.csv ``` di repo ini atau download di [kaggle](https://www.kaggle.com/datasets/arnavsmayan/netflix-userbase-dataset)   
 - ingest data dengan menggunakan ```LOAD DATA INFILE```, cek file ```secure_file_priv``` dengan menggunakan query ```SHOW VARIABLES LIKE 'secure_file_priv';```     
 ```
 +------------------+-----------------------+
