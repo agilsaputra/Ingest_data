@@ -37,7 +37,7 @@ CREATE TABLE ingest_data_terminal (
       Plan_Duration VARCHAR(255)
 );
 ```     
-- setelah itu download ``` Netflix Userbase.csv ``` di repo ini atau download di kaggle ```https://www.kaggle.com/datasets/arnavsmayan/netflix-userbase-dataset ```     
+- setelah itu download ``` Netflix Userbase.csv ``` di repo ini atau download di [kaggle](https://www.kaggle.com/datasets/arnavsmayan/netflix-userbase-dataset)   
 - ingest data dengan menggunakan ```LOAD DATA INFILE```, cek file ```secure_file_priv``` dengan menggunakan query ```SHOW VARIABLES LIKE 'secure_file_priv';```     
 ```
 +------------------+-----------------------+
@@ -46,8 +46,9 @@ CREATE TABLE ingest_data_terminal (
 | secure_file_priv | /var/lib/mysql-files/ |
 +------------------+-----------------------+
 1 row in set (0,03 sec)
-```     
-- folder secure_file_priv yang di boleh kan oleh mysql untuk mengupload file atau bisa di non aktifkan tp sy mengunakan metode copy file kedalam  ```/var/lib/mysql-files/ ```.
+```
+- ```/var/lib/mysql-files/``` directory ini yang akan di digunakan untuk menaruh file csv
+- ```secure_file_priv``` adalah folder yang di boleh kan oleh mysql untuk mengupload file atau bisa di non aktifkan tp sy mengunakan metode copy file kedalam  ```/var/lib/mysql-files/ ```.
 - copy file csv dari folder download ke dalam ```/var/lib/mysql-files/ ``` (akan berbeda jika menggunakan windows patch filenya)    
 
 - setelah itu jalankan query ```LOAD DATA INFILE``` dengan syntax      
