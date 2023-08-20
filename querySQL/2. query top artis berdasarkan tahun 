@@ -1,14 +1,32 @@
 SELECT
-  `ARTIST CLEAN` AS `Artist Name`,
-  COUNT(CASE WHEN `Release Year` = 1970 THEN 1 END) AS `1970`,
-  COUNT(CASE WHEN `Release Year` = 1971 THEN 1 END) AS `1971`,
-  COUNT(CASE WHEN `Release Year` = 1972 THEN 1 END) AS `1972`,
-  COUNT(CASE WHEN `Release Year` = 1973 THEN 1 END) AS `1973`,
-  COUNT(CASE WHEN `Release Year` = 1974 THEN 1 END) AS `1974`,
-   COUNT(CASE WHEN `Release Year` = 1975 THEN 1 END) AS `1975`
-FROM
-  test_table 
+  `Artist Name`,
+  MAX(`1970`) AS `1970`,
+  MAX(`1971`) AS `1971`,
+  MAX(`1972`) AS `1972`,
+  MAX(`1973`) AS `1973`,
+  MAX(`1974`) AS `1974`,
+  MAX(`1975`) AS `1975`
+FROM (
+  SELECT
+    `ARTIST CLEAN` AS `Artist Name`,
+    SUM(CASE WHEN `Release Year` = 1970 THEN 1 ELSE 0 END) AS `1970`,
+    SUM(CASE WHEN `Release Year` = 1971 THEN 1 ELSE 0 END) AS `1971`,
+    SUM(CASE WHEN `Release Year` = 1972 THEN 1 ELSE 0 END) AS `1972`,
+    SUM(CASE WHEN `Release Year` = 1973 THEN 1 ELSE 0 END) AS `1973`,
+    SUM(CASE WHEN `Release Year` = 1974 THEN 1 ELSE 0 END) AS `1974`,
+    SUM(CASE WHEN `Release Year` = 1975 THEN 1 ELSE 0 END) AS `1975`
+  FROM
+    test_table 
+  GROUP BY
+    `ARTIST CLEAN`
+) AS subquery
 GROUP BY
-  `ARTIST CLEAN`
- ORDER BY
-  COUNT(*) DESC;
+  `Artist Name`
+ORDER BY
+  MAX(`1970`) DESC,
+  MAX(`1971`) DESC,
+  MAX(`1972`) DESC,
+  MAX(`1973`) DESC,
+  MAX(`1974`) DESC,
+  MAX(`1975`) DESC;
+
