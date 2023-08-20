@@ -1,0 +1,6 @@
+SELECT `ARTIST CLEAN` AS ARTIS,
+		COUNT(`ARTIST CLEAN`) AS TOTAL_LAGU 
+FROM test_table tt 
+group by `ARTIST CLEAN` 
+order by TOTAL_LAGU DESC ;
+
