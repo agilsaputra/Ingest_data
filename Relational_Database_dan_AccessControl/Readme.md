@@ -68,5 +68,4 @@
       FOREIGN KEY (product_id) REFERENCES Products(product_id)
      );
      ```
-   - Tabel ```Order_Items``` mempunyai 1 PK dan 2 FK, Foreign key disini mengubungkan antara tabel ```Order_item``` dg ```Orders``` dan ```Product```
-   - dengan menggunakan order_id dan product_id
+   - Tabel ```Order_Items``` mempunyai 1 PK dan 2 FK, Foreign key disini mengubungkan antara tabel ```Order_item``` dg ```Orders``` dan ```Product``` dengan menggunakan order_id dan product_id
