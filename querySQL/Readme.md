@@ -48,5 +48,13 @@
     MAX(`1973`) DESC,
     MAX(`1974`) DESC,
     MAX(`1975`) DESC;
-```
+
 - hasil dari query tersebut yaitu [hasil query](https://github.com/agilsaputra/Ingest_data_dan_querySQL/blob/master/querySQL/2.%20output%20query%20query%20top%20artis%20berdasarkan%20tahun.csv)
+
+
+
+
+
+
+
+
