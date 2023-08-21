@@ -1,6 +1,6 @@
-### 🔖 Relasi Database Mysql dan Access control 👥 🧑‍💻
+### 🔖 Relasi Database Mysql dan Control User access dan role 👥 🧑‍💻
 
-#### 📊 Relasi database
+#### 📊 Relasi database Contoh skema database toko online
 - Relasi database ini menggunakan database [ini](https://github.com/agilsaputra/Ingest_data_dan_querySQL/blob/master/Relational_Database_dan_AccessControl/DB_relasi.sql)
 - Schema tabel dapat dilihat berikut
   <img src="https://github.com/agilsaputra/Ingest_data_dan_querySQL/blob/master/Relational_Database_dan_AccessControl/tabel%20relasi.png" />
@@ -68,4 +68,44 @@
       FOREIGN KEY (product_id) REFERENCES Products(product_id)
      );
      ```
+  
    - Tabel ```Order_Items``` mempunyai 1 PK dan 2 FK, Foreign key disini mengubungkan antara tabel ```Order_item``` dg ```Orders``` dan ```Product``` dengan menggunakan order_id dan product_id
+
+#### 🔑 Control user access dan role 
+
+- buat user baru di database
+  ![Screenshot from 2023-08-22 01-24-41](https://github.com/agilsaputra/Ingest_data_dan_querySQL/assets/22126819/331e6bcc-0f16-48bb-9a79-a54179e865ce)
+- query membuat user baru
+  ```
+  CREATE USER 'username' IDENTIFIED BY 'password';
+  ```
+- setelah itu kita buat role untuk data analyst yaitu user hanya bisa melakukan query SELECT yang berarti user hanya bisa menganalisa data tidak dapat melakukan update dan delete table maupun database
+  ```
+  mysql> CREATE ROLE DataAnalystRole;
+  Query OK, 0 rows affected (0,02 sec)
+
+  mysql> GRANT DataAnalystRole TO 'DataAnalyst'@'%';
+  Query OK, 0 rows affected (0,01 sec)
+
+  mysql> GRANT SELECT ON DB_relasi.* TO DataAnalystRole;
+  Query OK, 0 rows affected (0,02 sec)
+
+  mysql> SHOW GRANTS FOR 'DataAnalystRole';
+  +--------------------------------------------------------+
+  | Grants for DataAnalystRole@%                           |
+  +--------------------------------------------------------+
+  | GRANT USAGE ON *.* TO `DataAnalystRole`@`%`            |
+  | GRANT SELECT ON `DB_relasi`.* TO `DataAnalystRole`@`%` |
+  +--------------------------------------------------------+
+  2 rows in set (0,00 sec)
+
+  ```
+- break down query
+     - membuat role user ``` CREATE ROLE Nama_Role_User_Bebas; ```
+     - menambahkan role yg kita buat ke dalam user ```GRANT Nama_Role_User_Bebas TO 'User_kalian'@'host_kalian';```   
+       **note:** ```Nama_Role_User_Bebas``` adalah role yg  kalian buat sebelumnya
+     - tambahkan query SELECT yang berarti user hanya bisa menganalisa data tidak dapat melakukan update dan delete table maupun database. Untuk setting privilige bisa [kesini](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html) ```GRANT SELECT ON Database_kalian.* TO Nama_Role_User_Bebas;```   
+       **note**: ```Nama_Role_User_Bebas``` adalah role yg  kalian buat sebelumnya    
+                 ```*``` adalah memilih semua tabel di database jika kalian ingin spesifik maka ``` Database_kalian.Nama_tabel```
+        
+  
