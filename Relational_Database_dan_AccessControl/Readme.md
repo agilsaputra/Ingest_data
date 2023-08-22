@@ -95,23 +95,34 @@
       ```
       ***Dengan constraint***
       ```
-    CREATE TABLE Order_Items (
-      order_item_id INT AUTO_INCREMENT PRIMARY KEY,
-      order_id INT,
-      product_id INT,
-      quantity INT,
-      price_per_unit DECIMAL(10, 2),
-      CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES Orders(order_id), #Menambahkan nama constraint
-      CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES Products(product_id)#Menambahkan nama constraint
-     );
+      CREATE TABLE Order_Items (
+        order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+        order_id INT,
+        product_id INT,
+        quantity INT,
+        price_per_unit DECIMAL(10, 2),
+        CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES Orders(order_id), #Menambahkan nama constraint
+        CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES Products(product_id)#Menambahkan nama constraint
+      );
       ```
-    - karena kita sudah membuat query tanpa menambahkan nama constraint kita perlu rename dengan query
+    - karena kita sudah membuat query tanpa menambahkan nama constraint kita perlu drop dulu constraint yang lama
       ```
-      
+      -- Drop constraint yg lama
+      ALTER TABLE Order_Items
+      DROP FOREIGN KEY Order_Items_ibfk_1, 
+      DROP FOREIGN KEY Order_Items_ibfk_2;
 
+      -- Tambahkan constraint yg baru
+      ALTER TABLE Order_Items
+      ADD CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+      ADD CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES Products(product_id);
+      ```
+      ![Screenshot from 2023-08-23 01-09-46](https://github.com/agilsaputra/Ingest_data_dan_querySQL/assets/22126819/d0a20828-f213-403e-8bc2-c01c6a041456)
 
+      - Sekarang nama constraint dari tabel ```Order_Items``` ▶️ ```Orders``` yaitu ```fk_order``` dan  
+ ```Order_Items``` ▶️ ```Products``` yaitu ```fk_product```
+      - Nama ini akan mempermudah untuk schema database dan query yang kompleks.
 
-      
 
 
 #### 🔑 Control user access dan role 
