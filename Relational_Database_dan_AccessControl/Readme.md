@@ -71,6 +71,49 @@
   
    - Tabel ```Order_Items``` mempunyai 1 PK dan 2 FK, Foreign key disini mengubungkan antara tabel ```Order_item``` dg ```Orders``` dan ```Product``` dengan menggunakan order_id dan product_id
 
+#### 🔃 Identifikasi constraint 
+  - Pembuatan database Schema diatas sudah berelasi antar tabel tapi nama ```constraint``` di generate otomatis oleh mysql jika 1 tabel memiliki 2 foreign key maka nantinya akan membingungkan    
+      
+    ***case***
+    
+    ![Screenshot from 2023-08-22 21-38-14](https://github.com/agilsaputra/Ingest_data_dan_querySQL/assets/22126819/236b48dd-d3ba-4561-a342-ade58ff6046f)
+
+    - Tabel ```Order_Items``` diatas mempunyai relasi ke tabel ```Orders``` dan ```Products```, yang mana tabel ```Order_Items``` mempunyai 2 FOREGIN KEY ke tabel ```Orders``` dan ```Products```. dan memiliki nama ```constraint``` yang hampir sama karena kita tidak menambahkan di awal query. Nama ```constraint``` yang sama atau acak nantinya akan menyulitkan jika terjadi error saat query atau error database.     
+      ***Perbedaan create table sebelum memberi nama constrain dan sesudah***
+      ***query create tabel Order_Items yang lama***
+          
+      ```
+      CREATE TABLE Order_Items (
+        order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+        order_id INT,
+        product_id INT,
+        quantity INT,
+        price_per_unit DECIMAL(10, 2),
+        FOREIGN KEY (order_id) REFERENCES Orders(order_id), #Nama constraint di generate otomatis
+        FOREIGN KEY (product_id) REFERENCES Products(product_id) #Nama constraint di generate otomatis
+      );
+      ```
+      ***Dengan constraint***
+      ```
+    CREATE TABLE Order_Items (
+      order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+      order_id INT,
+      product_id INT,
+      quantity INT,
+      price_per_unit DECIMAL(10, 2),
+      CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES Orders(order_id), #Menambahkan nama constraint
+      CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES Products(product_id)#Menambahkan nama constraint
+     );
+      ```
+    - karena kita sudah membuat query tanpa menambahkan nama constraint kita perlu rename dengan query
+      ```
+      
+
+
+
+      
+
+
 #### 🔑 Control user access dan role 
 
 - buat user baru di database
