@@ -3,7 +3,7 @@
 #### 📊 Relasi database Contoh skema database toko online
 - Relasi database ini menggunakan database [ini](https://github.com/agilsaputra/Ingest_data_dan_querySQL/blob/master/Relational_Database_dan_AccessControl/DB_relasi.sql)
 - Schema tabel dapat dilihat berikut
-  <img src="https://github.com/agilsaputra/Ingest_data_dan_querySQL/blob/master/Relational_Database_dan_AccessControl/tabel%20relasi.png" />
+  ![Screenshot from 2023-08-23 20-40-21](https://github.com/agilsaputra/Ingest_data_dan_querySQL/assets/22126819/9d470877-1a72-4b1e-b79e-61fba9121122)
 
 - Penjelasan relasi tabel yang dibuat
    - 📑 Tabel ```Product```
