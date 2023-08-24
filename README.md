@@ -12,4 +12,4 @@
 ###  ▶️ Contoh Desain Database dan hak akses user di mysql 👨‍💻  
 - Contoh desain database di mysql dan membuat,menambahkan hak akses user [meluncur kesini gan](https://github.com/agilsaputra/Ingest_data_dan_querySQL/tree/master/Relational_Database_dan_AccessControl) 
 ### 🔌 konfigurasi koneksi mysql 👨‍💻
-- melihat hostname, ports, serta user [disini]()
+- melihat hostname, ports, serta user [disini](https://github.com/agilsaputra/Ingest_data_dan_querySQL/tree/master/Koneksi_database_mysql)
